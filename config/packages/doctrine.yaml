@@ -1,6 +1,21 @@
 doctrine:
     dbal:
-        url: '%env(resolve:DATABASE_URL)%'
+        default_connection: default
+        connections:
+            test:
+                dbname: 'thevillage_test'
+                user: 'root'
+                password: ''
+                host: '127.0.0.1'
+                driver: 'pdo_mysql'
+                server_version: '7.4.8'
+            default:
+                dbname: 'thevillage'
+                user: 'root'
+                password: ''
+                host: '127.0.0.1'
+                driver: 'pdo_mysql'
+                server_version: '7.4.8'
 
         # IMPORTANT: You MUST configure your server version,
         # either here or in the DATABASE_URL env var (see .env file)

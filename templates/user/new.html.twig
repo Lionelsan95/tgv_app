@@ -1,0 +1,75 @@
+{% extends 'base_disc.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+    <div id="login" class="container-fluid d-flex flex-column justify-content-lg-center vh-100">
+        <div class="row h-100">
+            <div class="col-xs-12 col-sm-4 col-md-12 col-lg-4 bg-first-color d-flex justify-content-center align-items-center p-5">
+                <img src="{{ asset('images/logo-TGV-white.png') }}" class="img-fluid d-block w-50">
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-12 col-lg-8 border-first-color d-flex flex-column justify-content-center align-items-center"
+                 style="background-image: url({{ asset('images/TGV-team.jpg') }}); background-position: 0%; background-repeat: no-repeat; background-size: cover;">
+                <div class="row m-3 w-100">
+                    <div class="col-sm-12 py-4 px-2 p-xl-5">
+                        <h1 class="text-center display-1 color-main-white text-uppercase">register it's easy&nbsp;!</h1>
+                    </div>
+                </div>
+                <div class="row m-3 w-100">
+                    <div class="col-xs-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3 col-xl-6 offset-xl-3 p-3 p-xl-5 border-second-color bg-main-white frame">
+
+                        <form method="post" id="subscribe" action="{{ path('user_register') }}" class="d-flex flex-column justify-content-center align-items-center">
+                            <div class="form-group input-group w-auto">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                </div>
+                                {{ form_widget(form.firstName) }}
+                            </div>
+                            <div class="form-group input-group w-auto">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                </div>
+                                {{ form_widget(form.lastName) }}
+                            </div>
+                            <div class="form-group input-group w-auto">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                                </div>
+                                {{ form_widget(form.email) }}
+                            </div>
+                            <div class="form-group input-group w-auto">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                                </div>
+                                {{ form_widget(form.organisation) }}
+                            </div>
+                            <div class="form-group input-group w-auto">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                </div>
+                                {{ form_widget(form.password.first, {'attr': {'placeholder':'Password'}}) }}
+                            </div>
+                            <div class="form-group input-group w-auto">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                </div>
+                                {{ form_widget(form.password.second, {'attr': {'placeholder':'Confirm password'}}) }}
+                            </div>
+                            <div class="form-group color-main-white">
+                                <button type="submit" id="create" class="btn bg-third-color color-main-white py-1 px-5">Create an account</button>
+                            </div>
+                            {{ form_row(form._token) }}
+                            <p class="text-center  color-fourth-color">Have already an account ? <a href="{{ path('app_login') }}" class="color-fourth-color">Log In</a> </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/user.js') }}" type="text/javascript"></script>
+{% endblock %}

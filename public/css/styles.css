@@ -1,0 +1,361 @@
+@charset "UTF-8";
+
+/*Theme Name : The Great Village*/
+/*Author : Sarah DANDY*/
+/*Description : Thème The Great Village*/
+/*Version 1.0*/
+
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url('../fonts/Poppins/Poppins-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Poppins-Medium';
+    src: url('../fonts/Poppins/Poppins-Medium.ttf');
+    font-weight: bold;
+}
+
+
+:root {
+    --main-white: white;
+    --main-grey: #ccc;
+
+    --yellow: #FEC532;
+    --orange: #FF8403;
+    --pink: #EE7489;
+    --red: #ED3839;
+    --green-light: #53FF90;
+    --green-dark: #108A71;
+    --blue-light: #54BBD0;
+    --blue-dark: #191F52;
+
+    --green-logo: #34E2B7;
+    --pink-logo: #FF7E95;
+    --purple-logo: #372A4B;
+
+
+    --first-color: var(--green-logo);
+    --second-color: var(--pink-logo);
+    --third-color: var(--purple-logo);
+    --fourth-color: #FEC532;
+
+
+
+    --font-size-browser: 1.6rem;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+@media only screen and (max-width: 767px) {
+    html {
+        font-size: 50%;
+    }
+}
+
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins-Medium', sans-serif;
+    font-size: var(--font-size-browser);
+}
+
+/**********************************************************************************************************************/
+/***** BALISES *****/
+/**********************************************************************************************************************/
+a {
+    color: var(--first-color);
+}
+
+h1, h2 {
+    font-family: 'Poppins-Bold', sans-serif;
+}
+
+input, select {
+    border: 1px solid #ccc;
+    filter: none;
+    max-width: 250px;
+}
+
+#login input {
+    border: 1px solid var(--first-color);
+}
+
+input::placeholder {
+    font-size: 1.3rem;
+    font-style: italic;
+}
+
+textarea {
+    border: 1px solid #ccc;
+}
+
+/**********************************************************************************************************************/
+/***** BUTTONS *****/
+/**********************************************************************************************************************/
+button.btn {
+    font-size: 1.6rem;
+}
+
+button:hover.btn, button:focus.btn {
+    text-decoration: underline;
+    color: inherit;
+}
+
+a.btn {
+    font-size: 1.6rem;
+    padding: .25rem 5rem;
+}
+
+a:hover, a:focus,
+a:hover.btn, a:focus.btn {
+    text-decoration: underline;
+    color: inherit;
+}
+
+a:hover span svg, a:focus span svg,
+button:hover span svg, button:focus span svg{
+    color: var(--fourth-color);
+}
+a:hover span svg:nth-child(2), a:focus span svg:nth-child(2),
+button:hover span svg:nth-child(2), button:focus span svg:nth-child(2){
+    color: var(--main-white);
+}
+/**********************************************************************************************************************/
+/***** COLORS *****/
+/**********************************************************************************************************************/
+.bg-fourth-color {
+    background: var(--fourth-color);
+}
+.border-fourth-color {
+    border: 2px solid var(--fourth-color);
+}
+.color-fourth-color {
+    color: var(--fourth-color);
+}
+
+.bg-second-color {
+    background: var(--second-color);
+}
+.border-second-color {
+    border: 2px solid var(--second-color);
+}
+.color-second-color {
+    color: var(--second-color);
+}
+
+.bg-third-color {
+    background: var(--third-color);
+}
+.border-third-color {
+    border: 2px solid var(--third-color);
+}
+.color-third-color {
+    color: var(--third-color);
+}
+
+.bg-first-color {
+    background: var(--first-color);
+}
+.border-first-color {
+    border: 2px solid var(--first-color);
+}
+.color-first-color {
+    color: var(--first-color);
+}
+
+.bg-main-white {
+    background: var(--main-white);
+}
+.border-main-white {
+    border: 2px solid var(--main-white);
+}
+.color-main-white {
+    color: var(--main-white);
+}
+
+.bg-main-grey {
+    background: var(--main-grey);
+}
+.border-main-grey {
+    border: 2px solid var(--main-grey);
+}
+.color-main-grey {
+    color: var(--main-grey);
+}
+
+/**********************************************************************************************************************/
+/***** SPECIFIC CLASSES *****/
+/**********************************************************************************************************************/
+#login div.frame {
+    box-shadow: 10px 10px var(--second-color);
+}
+
+#login div.input-group-prepend span {
+    background: var(--first-color);
+    border: 1px solid var(--first-color);
+    color: var(--main-white);
+}
+
+.sup-frame {
+    border-top: 2px solid var(--fourth-color);
+    border-left: 2px solid var(--fourth-color);
+    box-shadow: -1px -1px var(--fourth-color);
+}
+
+.inf-frame {
+    padding: 1rem 3rem 3rem 1rem;
+    border-bottom: 2px solid var(--fourth-color);
+    border-right: 2px solid var(--fourth-color);
+    box-shadow: 1px 1px var(--fourth-color);
+}
+
+@media only screen and (max-width: 576px) {
+    div .fa-user {
+        display: none;
+    }
+}
+
+/**********************************************************************************************************************/
+/***** USEFUL CLASSES *****/
+/**********************************************************************************************************************/
+.top-0 {
+    top: 0;
+}
+
+.bottom-0 {
+    bottom: 0;
+}
+
+.right-0 {
+    right: 0;
+}
+
+.rounded-1 {
+    border-radius: 0.5rem;;
+}
+
+/**********************************************************************************************************************/
+/***** 404 - 403 - 500 *****/
+/**********************************************************************************************************************/
+/*Web*/
+/*@media only screen and (min-width: 1200px) {*/
+    .circle {
+        height: 40vh;
+        width: 40vh;
+
+        --circle-ray: calc(40vh / 2);
+
+        top: calc(50% - var(--circle-ray));
+        left: calc(33% - var(--circle-ray));
+    }
+
+    .circle-1 {
+        top: calc(50% - var(--circle-ray) - 10px);
+    }
+    .circle-2 {
+        left: calc(33% - var(--circle-ray) - 10px);
+    }
+    .circle-3 {
+        top: calc(50% - var(--circle-ray) + 10px);
+    }
+
+    .position-error {
+        top: calc(50% - 3rem);
+        left: calc(33% - 6rem);
+    }
+/*}*/
+/*Tablette landscape*/
+@media only screen and (max-width: 1199px) {
+    .circle {
+        height: 40vh;
+        width: 40vh;
+
+        --circle-ray: calc(40vh / 2);
+
+        top: calc(50% - var(--circle-ray));
+        left: calc(33% - var(--circle-ray));
+    }
+
+    .circle-1 {
+        top: calc(50% - var(--circle-ray) - 10px);
+    }
+    .circle-2 {
+        left: calc(33% - var(--circle-ray) - 10px);
+    }
+    .circle-3 {
+        top: calc(50% - var(--circle-ray) + 10px);
+    }
+}
+/*Tablette portrait*/
+@media only screen and (max-width: 991px) {
+    .circle {
+        height: 40vw;
+        width: 40vw;
+
+        --circle-ray: calc(40vw / 2);
+
+        top: calc(50% - var(--circle-ray));
+        left: calc(33% - var(--circle-ray));
+    }
+
+    .circle-1 {
+        top: calc(50% - var(--circle-ray) - 10px);
+    }
+    .circle-2 {
+        left: calc(33% - var(--circle-ray) - 10px);
+    }
+    .circle-3 {
+        top: calc(50% - var(--circle-ray) + 10px);
+    }
+}
+/*Smartphone landscape*/
+@media only screen and (max-width: 767px) {
+    .circle {
+        height: 40vh;
+        width: 40vh;
+
+        --circle-ray: calc(40vh / 2);
+
+        top: calc(50% - var(--circle-ray));
+        left: calc(33% - var(--circle-ray));
+    }
+
+    .circle-1 {
+        top: calc(50% - var(--circle-ray) - 5px);
+    }
+    .circle-2 {
+        left: calc(33% - var(--circle-ray) - 5px);
+    }
+    .circle-3 {
+        top: calc(50% - var(--circle-ray) + 5px);
+    }
+}
+/*Smartphone portrait*/
+@media only screen and (max-width: 576px) {
+    .circle {
+        height: 40vw;
+        width: 40vw;
+
+        --circle-ray: calc(40vw / 2);
+
+        top: calc(50% - var(--circle-ray));
+        left: calc(33% - var(--circle-ray));
+    }
+
+    .circle-1 {
+        top: calc(50% - var(--circle-ray) - 5px);
+    }
+    .circle-2 {
+        left: calc(33% - var(--circle-ray) - 5px);
+    }
+    .circle-3 {
+        top: calc(50% - var(--circle-ray) + 5px);
+    }
+}

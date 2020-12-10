@@ -2,11 +2,60 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <link rel="icon" href="{{ asset('images/TheGreatLogo_Color_V2.svg') }}" type="image/x-icon"/>
+        {% block stylesheets %}
+            <link rel="stylesheet"
+                  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+                  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+                  crossorigin="anonymous">
+            <link href="{{ asset('css/styles.css') }}" rel="stylesheet" media="all">
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <div class="container-fluid d-flex flex-column min-vh-100">
+            {% if app.user %}
+                <div class="row justify-content-between bg-first-color p-3" style="max-height: 10vh;">
+                    <div class="col-xs-5 offset-1 p-0 d-flex color-fourth-color">
+                        <a href="/user/" class="d-flex align-items-end color-third-color">
+                            <span><i class="fas fa-home fa-2x mx-1 color-third-color"></i></span> Home
+                        </a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a href="/actions/" class="d-flex align-items-end color-third-color mx-5">
+                                <span><i class="fas fa-book-open  fa-2x mx-1 color-third-color"></i></span> Actions
+                            </a>
+                        {% endif %}
+                    </div>
+                    <div class="col-xs-6">
+                        <span class="color-main-white"><a style="color:white" href="{{ path('user_edit_profile', {'id':app.user.id}) }}">{{ app.user.firstName ~ ' ' ~ app.user.lastName }}</a></span>
+                        <a href="{{ path('app_logout') }}" class="btn rounded-1 border-first-color color-first-color bg-main-white">
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+
+
+            <div class="row">
+                <div class="col-md-1 bg-second-color"></div>
+                <div class="col-xs-12 col-md-11 w-100 p-5">
+                    <div class="container-fluid d-flex flex-column justify-content-between" style="min-height: 90vh;">
+                        {% block body %}{% endblock %}
+                        <div class="row">
+                            <div class="col-xs-12 w-100">
+                                <img src="{{ asset('images/TheGreatLogo_Color_V2.svg') }}" class="img-fluid d-block w-25 mx-auto" style="max-width: 80px">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </body>
+    {% block javascripts %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" integrity="sha512-F5QTlBqZlvuBEs9LQPqc1iZv2UMxcVXezbHzomzS6Df4MZMClge/8+gXrKw2fl5ysdk4rWjR0vKS7NNkfymaBQ==" crossorigin="anonymous"></script>
+    {% endblock %}
 </html>

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actions{% endblock %}
+
+{% block body %}
+    <a href="{{ path('actions_edit', {'id': action.id}) }}">edit</a>
+    <h1>Actions</h1>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ action.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ action.nom }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ action.bonus ? 'Bonus' : 'Malus' }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ action.prix }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
